@@ -1,0 +1,11 @@
+<!-- intent_dashboard.html -->
+{% extends 'dashboard/base_dashboard.html' %}
+{% block dashboard_content %}
+    {% if user.is_approved %}
+        <p>Welcome, Intent! Your account is approved and ready.</p>
+        <!-- You can add more features here for approved users -->
+    {% else %}
+        <p>Your account is currently <strong>awaiting admin approval</strong>.</p>
+        <p>Please check back soon or contact support for assistance.</p>
+    {% endif %}
+{% endblock %}
