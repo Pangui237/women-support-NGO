@@ -1,20 +1,132 @@
 {% extends "base.html" %}
-{% block title %}Register{% endblock %}
+{% load static %}
+
 {% block content %}
-  <h2>Register</h2>
+<link rel="stylesheet" href="{% static 'accounts/css/register.css' %}">
 
-  {% if messages %}
-    {% for message in messages %}
-      <p class="alert {{ message.tags }}">{{ message }}</p>
-    {% endfor %}
-  {% endif %}
 
-  <form method="POST">
+
+<div class="container">
+  <h2>Create Your Account</h2>
+
+  <form method="POST" novalidate>
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-  </form>
 
-  <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
-  <p>{{form.errors}}</p>
+    <!-- Username -->
+    <div class="form-group">
+      <label for="id_username">Username</label>
+      <input type="text" name="username" id="id_username" value="{{ request.POST.username }}">
+      {% if form.errors.username %}
+        <div class="error">{{ form.errors.username.0 }}</div>
+      {% endif %}
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="id_email">Email</label>
+      <input type="email" name="email" id="id_email" value="{{ request.POST.email }}">
+      {% if form.errors.email %}
+        <div class="error">{{ form.errors.email.0 }}</div>
+      {% endif %}
+    </div>
+
+    <!-- Password1 -->
+    <div class="form-group">
+      <label for="id_password1">Password</label>
+      <div class="password-wrapper">
+        <input type="password" name="password1" id="id_password1">
+        <button type="button" class="toggle-password" onclick="togglePassword('id_password1')">👁</button>
+      </div>
+      {% if form.errors.password1 %}
+        <div class="error">{{ form.errors.password1.0 }}</div>
+      {% endif %}
+    </div>
+
+    <!-- Password2 -->
+    <div class="form-group">
+      <label for="id_password2">Confirm Password</label>
+      <div class="password-wrapper">
+        <input type="password" name="password2" id="id_password2">
+        <button type="button" class="toggle-password" onclick="togglePassword('id_password2')">👁</button>
+      </div>
+      {% if form.errors.password2 %}
+        <div class="error">{{ form.errors.password2.0 }}</div>
+      {% endif %}
+    </div>
+
+    <!-- First Name -->
+    <div class="form-group">
+      <label for="id_first_name">First Name</label>
+      <input type="text" name="first_name" id="id_first_name" value="{{ request.POST.first_name }}">
+      {% if form.errors.first_name %}
+        <div class="error">{{ form.errors.first_name.0 }}</div>
+      {% endif %}
+    </div>
+
+    <!-- Last Name -->
+    <div class="form-group">
+      <label for="id_last_name">Last Name</label>
+      <input type="text" name="last_name" id="id_last_name" value="{{ request.POST.last_name }}">
+      {% if form.errors.last_name %}
+        <div class="error">{{ form.errors.last_name.0 }}</div>
+      {% endif %}
+    </div>
+
+    <!-- Birthdate -->
+    <div class="form-group">
+      <label for="id_birthdate">Birthdate</label>
+      <input type="date" name="birthdate" id="id_birthdate" value="{{ request.POST.birthdate }}">
+      {% if form.errors.birthdate %}
+        <div class="error">{{ form.errors.birthdate.0 }}</div>
+      {% endif %}
+    </div>
+
+    <!-- Role -->
+    <div class="form-group">
+      <label for="id_role">Role</label>
+      <select name="role" id="id_role">
+        <option value="">Select your role</option>
+        {% for val, label in form.fields.role.choices %}
+          {% if val != 'admin' %}
+            <option value="{{ val }}" {% if request.POST.role == val %}selected{% endif %}>{{ label }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      {% if form.errors.role %}
+        <div class="error">{{ form.errors.role.0 }}</div>
+      {% endif %}
+    </div>
+
+    <!-- Gender -->
+    <div class="form-group">
+  <label>Gender</label>
+  <div class="gender-options">
+    {% for val, label in form.fields.gender.choices %}
+      <label class="gender-option">
+        <input type="radio" name="gender" value="{{ val }}" {% if request.POST.gender == val %}checked{% endif %}>
+        {{ label }}
+      </label>
+    {% endfor %}
+  </div>
+  {% if form.errors.gender %}
+    <div class="error">{{ form.errors.gender.0 }}</div>
+  {% endif %}
+</div>
+
+
+    <!-- Country -->
+    <div class="form-group">
+      <label for="id_country">Country</label>
+      <input type="text" name="country" id="id_country" value="{{ request.POST.country }}">
+      {% if form.errors.country %}
+        <div class="error">{{ form.errors.country.0 }}</div>
+      {% endif %}
+    </div>
+
+    <button type="submit" class="btn">Register</button>
+  </form>
+</div>
+
+<script src="{% static 'accounts/js/register.js' %}"></script>
+
 {% endblock %}

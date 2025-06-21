@@ -13,6 +13,11 @@ class CustomUserCreationForm(UserCreationForm):
         widgets = {
             'gender': forms.RadioSelect
         }
+    gender = forms.ChoiceField(
+        choices=User.GENDER_CHOICES,
+        widget=forms.RadioSelect,
+        required=True
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

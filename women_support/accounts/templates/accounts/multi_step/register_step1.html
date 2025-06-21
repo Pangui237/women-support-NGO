@@ -1,0 +1,40 @@
+<form id="step1-form" method="post" novalidate>
+  {% csrf_token %}
+  <label>Username</label>
+  <input name="username" required><div id="error-username" class="error"></div>
+
+  <label>Email</label>
+  <input type="email" name="email" required><div id="error-email" class="error"></div>
+
+  <label>Password</label>
+  <input type="password" name="password1" required><div id="error-password1" class="error"></div>
+
+  <label>Confirm Password</label>
+  <input type="password" name="password2" required><div id="error-password2" class="error"></div>
+
+  <button type="submit">Next</button>
+  <div class="loading" id="spinner" style="display:none;"></div>
+</form>
+
+<script>
+  document.getElementById('step1-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    document.getElementById('spinner').style.display = 'block';
+
+    const res = await fetch("{% url 'register_step1' %}", {
+      method: 'POST',
+      headers: {'X-CSRFToken': formData.get('csrfmiddlewaretoken')},
+      body: formData
+    });
+
+    const data = await res.json();
+    document.getElementById('spinner').style.display = 'none';
+
+    if (data.success) {
+      window.location.href = "{% url 'register_step2' %}";
+    } else {
+      // Handle future error display
+    }
+  });
+</script>

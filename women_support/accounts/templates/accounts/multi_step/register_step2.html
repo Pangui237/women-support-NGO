@@ -1,0 +1,60 @@
+<form id="step2-form" method="post" novalidate>
+  {% csrf_token %}
+
+  <label>First Name</label>
+  <input name="first_name"><div id="error-first_name" class="error"></div>
+
+  <label>Last Name</label>
+  <input name="last_name"><div id="error-last_name" class="error"></div>
+
+  <label>Birthdate</label>
+  <input type="date" name="birthdate"><div id="error-birthdate" class="error"></div>
+
+  <label>Gender</label>
+  <label><input type="radio" name="gender" value="male">Male</label>
+  <label><input type="radio" name="gender" value="female">Female</label>
+  <label><input type="radio" name="gender" value="other">Other</label>
+  <div id="error-gender" class="error"></div>
+
+  <label>Role</label>
+  <select name="role" required>
+    <option value="">Select</option>
+    <option value="donor">Donor</option>
+    <option value="intent">Intent</option>
+    <option value="mentor">Mentor</option>
+    <option value="partner">Partner</option>
+    <option value="volunteer">Volunteer</option>
+  </select>
+  <div id="error-role" class="error"></div>
+
+  <label>Country</label>
+  <input name="country"><div id="error-country" class="error"></div>
+
+  <button type="submit">Finish</button>
+  <div class="loading" id="spinner" style="display:none;"></div>
+</form>
+
+<script>
+  document.getElementById('step2-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    document.getElementById('spinner').style.display = 'block';
+
+    const res = await fetch("{% url 'register_step2' %}", {
+      method: 'POST',
+      headers: {'X-CSRFToken': formData.get('csrfmiddlewaretoken')},
+      body: formData
+    });
+
+    const data = await res.json();
+    document.getElementById('spinner').style.display = 'none';
+
+    if (data.success) {
+      window.location.href = data.redirect_url;
+    } else {
+      for (const [field, errors] of Object.entries(data.errors)) {
+        document.getElementById(`error-${field}`).textContent = errors.join(', ');
+      }
+    }
+  });
+</script>
