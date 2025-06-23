@@ -1,0 +1,29 @@
+<h2>{% if donation %}Edit{% else %}Create{% endif %} Donation</h2>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label>Title</label>
+  <input type="text" name="title" value="{{ donation.title|default:'' }}" required>
+
+  <label>Description</label>
+  <textarea name="description">{{ donation.description|default:'' }}</textarea>
+
+  <label>Category</label>
+  <select name="category">
+    <option value="">Select</option>
+    {% for category in categories %}
+      <option value="{{ category.id }}"
+        {% if donation and donation.category.id == category.id %}selected{% endif %}>
+        {{ category.name }}
+      </option>
+    {% endfor %}
+  </select>
+
+  <label>Goal Amount</label>
+  <input type="number" name="goal_amount" step="0.01" value="{{ donation.goal_amount|default:'' }}">
+  <input type="number" name="raised_amount" step="0.01" value="{{ raised_amount.goal_amount|default:'' }}">
+
+  <label>Image</label>
+  <input type="file" name="image">
+
+  <button type="submit">Save</button>
+</form>

@@ -25,8 +25,12 @@ urlpatterns = [
     #path('donations/', include('donations.urls')),
     #path('newsletter/', include('newsletter.urls')),
     #path('blog/', include('blog.urls')),
+    # path('category', include('category.urls')),
+    path('dashboard/categories/', include('category.urls')),
+    path('dashboard/events/', include('events.urls')),
+    path('dashboard/donations/', include('donations.urls')),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-     path('dashboard/', include('dashboard.urls')),
+    path('dashboard/', include('dashboard.urls')),
     
 ]

@@ -2,4 +2,7 @@
 {% extends 'dashboard/base_dashboard.html' %}
 {% block dashboard_content %}
 <p>Welcome, Partner! You can manage collaboration requests here.</p>
+mr {{ user.username }}
+
+<h3><a href="{% url 'event_list' %}">events details</a></h3>
 {% endblock %}
