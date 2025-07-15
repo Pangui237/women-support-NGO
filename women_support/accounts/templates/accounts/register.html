@@ -2,131 +2,162 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'accounts/css/register.css' %}">
-
-
-
-<div class="container">
-  <h2>Create Your Account</h2>
-
-  <form method="POST" novalidate>
-    {% csrf_token %}
-
-    <!-- Username -->
-    <div class="form-group">
-      <label for="id_username">Username</label>
-      <input type="text" name="username" id="id_username" value="{{ request.POST.username }}">
-      {% if form.errors.username %}
-        <div class="error">{{ form.errors.username.0 }}</div>
-      {% endif %}
-    </div>
-
-    <!-- Email -->
-    <div class="form-group">
-      <label for="id_email">Email</label>
-      <input type="email" name="email" id="id_email" value="{{ request.POST.email }}">
-      {% if form.errors.email %}
-        <div class="error">{{ form.errors.email.0 }}</div>
-      {% endif %}
-    </div>
-
-    <!-- Password1 -->
-    <div class="form-group">
-      <label for="id_password1">Password</label>
-      <div class="password-wrapper">
-        <input type="password" name="password1" id="id_password1">
-        <button type="button" class="toggle-password" onclick="togglePassword('id_password1')">👁</button>
-      </div>
-      {% if form.errors.password1 %}
-        <div class="error">{{ form.errors.password1.0 }}</div>
-      {% endif %}
-    </div>
-
-    <!-- Password2 -->
-    <div class="form-group">
-      <label for="id_password2">Confirm Password</label>
-      <div class="password-wrapper">
-        <input type="password" name="password2" id="id_password2">
-        <button type="button" class="toggle-password" onclick="togglePassword('id_password2')">👁</button>
-      </div>
-      {% if form.errors.password2 %}
-        <div class="error">{{ form.errors.password2.0 }}</div>
-      {% endif %}
-    </div>
-
-    <!-- First Name -->
-    <div class="form-group">
-      <label for="id_first_name">First Name</label>
-      <input type="text" name="first_name" id="id_first_name" value="{{ request.POST.first_name }}">
-      {% if form.errors.first_name %}
-        <div class="error">{{ form.errors.first_name.0 }}</div>
-      {% endif %}
-    </div>
-
-    <!-- Last Name -->
-    <div class="form-group">
-      <label for="id_last_name">Last Name</label>
-      <input type="text" name="last_name" id="id_last_name" value="{{ request.POST.last_name }}">
-      {% if form.errors.last_name %}
-        <div class="error">{{ form.errors.last_name.0 }}</div>
-      {% endif %}
-    </div>
-
-    <!-- Birthdate -->
-    <div class="form-group">
-      <label for="id_birthdate">Birthdate</label>
-      <input type="date" name="birthdate" id="id_birthdate" value="{{ request.POST.birthdate }}">
-      {% if form.errors.birthdate %}
-        <div class="error">{{ form.errors.birthdate.0 }}</div>
-      {% endif %}
-    </div>
-
-    <!-- Role -->
-    <div class="form-group">
-      <label for="id_role">Role</label>
-      <select name="role" id="id_role">
-        <option value="">Select your role</option>
-        {% for val, label in form.fields.role.choices %}
-          {% if val != 'admin' %}
-            <option value="{{ val }}" {% if request.POST.role == val %}selected{% endif %}>{{ label }}</option>
-          {% endif %}
-        {% endfor %}
-      </select>
-      {% if form.errors.role %}
-        <div class="error">{{ form.errors.role.0 }}</div>
-      {% endif %}
-    </div>
-
-    <!-- Gender -->
-    <div class="form-group">
-  <label>Gender</label>
-  <div class="gender-options">
-    {% for val, label in form.fields.gender.choices %}
-      <label class="gender-option">
-        <input type="radio" name="gender" value="{{ val }}" {% if request.POST.gender == val %}checked{% endif %}>
-        {{ label }}
-      </label>
-    {% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'accounts/css/auth.css' %}">
+<title>Register</title>
+</head>
+<body>
+<main>
+<div class="content">
+  <div class="left">
+    <img src="{% static 'accounts/img/Register.svg' %}" alt="">
   </div>
-  {% if form.errors.gender %}
-    <div class="error">{{ form.errors.gender.0 }}</div>
-  {% endif %}
-</div>
 
+  <div class="right">
+    <form method="post" novalidate>
+      {% csrf_token %}
 
-    <!-- Country -->
-    <div class="form-group">
-      <label for="id_country">Country</label>
-      <input type="text" name="country" id="id_country" value="{{ request.POST.country }}">
-      {% if form.errors.country %}
-        <div class="error">{{ form.errors.country.0 }}</div>
+      {% if form.non_field_errors %}
+      <ul class="error-list">
+        {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
       {% endif %}
-    </div>
 
-    <button type="submit" class="btn">Register</button>
-  </form>
+      <div class="fields">
+
+        <div class="space">
+          <div>
+            <label>First Name</label>
+            <input type="text" name="first_name" value="{{ form.first_name.value|default_if_none:'' }}">
+            {% if form.first_name.errors %}
+              <div class="field-error">{{ form.first_name.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          <div>
+            <label>Last Name</label>
+            <input type="text" name="last_name" value="{{ form.last_name.value|default_if_none:'' }}">
+            {% if form.last_name.errors %}
+              <div class="field-error">{{ form.last_name.errors.0 }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div>
+          <label>Role</label>
+          <select name="role">
+            <option value="">Select a role</option>
+            <option value="partner" {% if form.role.value == 'partner' %}selected{% endif %}>Partner</option>
+            <option value="donator" {% if form.role.value == 'donator' %}selected{% endif %}>Donator</option>
+            <option value="mentor" {% if form.role.value == 'mentor' %}selected{% endif %}>Mentor</option>
+            <option value="intent" {% if form.role.value == 'intent' %}selected{% endif %}>Intent</option>
+            <option value="volunteer" {% if form.role.value == 'volunteer' %}selected{% endif %}>Volunteer</option>
+          </select>
+          {% if form.role.errors %}
+            <div class="field-error">{{ form.role.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <div class="space">
+          <div>
+            <label>Email</label>
+            <input type="email" name="email" value="{{ form.email.value|default_if_none:'' }}">
+            {% if form.email.errors %}
+              <div class="field-error">{{ form.email.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          <div>
+            <label>Country</label>
+            <input type="text" name="country" value="{{ form.country.value|default_if_none:'' }}">
+            {% if form.country.errors %}
+              <div class="field-error">{{ form.country.errors.0 }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div>
+          <label>Username</label>
+          <input type="text" name="username" value="{{ form.username.value|default_if_none:'' }}">
+          {% if form.username.errors %}
+            <div class="field-error">{{ form.username.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <div class="space">
+          <div>
+            <label>Phone</label>
+            <input type="text" name="phone" value="{{ form.phone.value|default_if_none:'' }}">
+            {% if form.phone.errors %}
+              <div class="field-error">{{ form.phone.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          <div>
+            <label>Location</label>
+            <input type="text" name="location" value="{{ form.location.value|default_if_none:'' }}">
+            {% if form.location.errors %}
+              <div class="field-error">{{ form.location.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          <div>
+            <label>Birth Date</label>
+            <input type="date" name="birth_date" value="{{ form.birth_date.value|default_if_none:'' }}">
+            {% if form.birth_date.errors %}
+              <div class="field-error">{{ form.birth_date.errors.0 }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div>
+          <label>Password</label>
+          <input type="password" name="password1">
+          {% if form.password1.errors %}
+            <div class="field-error">{{ form.password1.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <div>
+          <label>Confirm Password</label>
+          <input type="password" name="password2">
+          {% if form.password2.errors %}
+            <div class="field-error">{{ form.password2.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <div>
+          <label>Gender</label>
+          <div class="space">
+            <label><input type="radio" name="gender" value="male"
+              {% if form.gender.value == 'male' %}checked{% endif %}> Male</label>
+
+            <label><input type="radio" name="gender" value="female"
+              {% if form.gender.value == 'female' %}checked{% endif %}> Female</label>
+          </div>
+          {% if form.gender.errors %}
+            <div class="field-error">{{ form.gender.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <div class="spaceb">
+          <p><a href="{% url 'login' %}">Already have an account?</a></p>
+          <button type="submit" class="reg">Register</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
 </div>
+</main>
 
-<script src="{% static 'accounts/js/register.js' %}"></script>
+</body>
+</html>
 
 {% endblock %}

@@ -1,0 +1,228 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url('../img/Auth_bg.svg');
+    /* height: 100vb; */
+    background-repeat: no-repeat;
+    /* background-color: black; */
+    background-size: cover;
+}
+header{
+    height: 20vb;
+    border: 1px solid #000;
+}
+main{
+ width: 90%;
+ /* background-color: #363055; */
+ margin: 5% ;
+}
+main .content{
+    display: flex;
+    /* gap: 5px; */
+}
+main .content .left{
+    width: 45%;
+    /* border: 2px solid red; */
+    padding: 30px 25px;
+    background-color: #363055;
+
+}
+.left img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 10%;
+    filter: brightness(95%);
+}
+main .content .right{
+    background-color: #fff;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.content .right .fields{
+    margin: 6% 5% 4% 5%;
+    display: flex;
+    flex-direction: column;
+    
+    /* border:1px solid #000; */
+
+}
+.fields label{
+    display: block;
+    margin: 4px 0;
+    font-family: 'Poppins';
+    font-weight: 450;
+    opacity: 0.9;
+    width: 100%;
+    /* border:1px solid #000; */
+}
+input{
+    width: 100%;
+    padding: 9px;
+}
+.fields .name input[type="text"]{
+    width: 47%;
+}
+.fields div{
+    width: 100%;
+    /* border: 1px solid #FD8531; */
+}
+select{
+    width: 100%;
+    padding: 9px 0;
+}
+
+.fields .name{
+    display: flex;
+    /* justify-content: space-between; */
+}
+.space{
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    gap: 3%;
+    /* border: 1px solid #FD8531; */
+}
+.space div{
+    width: 47%;
+
+}
+input[type="radio"]{
+    width: 15%;
+}
+p {
+    padding: 1% 6%;
+}
+.spaceb{
+    width: 90%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.log, .reg{
+    background-color: #FD8531;
+    border: 2px solid #FD8531;
+    border-radius: 3px;
+    padding: 1% 6%;
+}
+
+button{
+    color: #fff;
+    text-decoration: none;
+    background-color: inherit;
+    border: none;
+    font-weight: 550;
+}
+.login{
+    width: 100%;
+    /* height: 60%; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.login p{
+    width: 80%;
+    /* border: 2px solid #000; */
+    text-align: center;
+
+}
+.error-list {
+  color: red;
+  margin: 10px 0;
+  list-style: none;
+  font-size: 0.9em;
+}
+.field-error {
+  color: red;
+  font-size: 0.85em;
+}
+
+/* =============================================
+   Hide left section on small devices
+============================================= */
+
+@media (max-width: 991px) {
+  main .content {
+    flex-direction: column;
+  }
+
+  main .content .left {
+    display: none; /* 👈 hide the left section */
+  }
+
+  main .content .right {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .space {
+    flex-direction: column;
+  }
+
+  .space div {
+    width: 100%;
+  }
+
+  .spaceb {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* Mobile: tighter spacing */
+@media (max-width: 575px) {
+  main {
+    width: 95%;
+    margin: 2% auto;
+  }
+
+  .fields {
+    margin: 4% 2%;
+  }
+
+  .fields label {
+    font-size: 0.9rem;
+  }
+
+  input, select {
+    padding: 7px;
+    font-size: 0.9rem;
+  }
+
+  .reg, .log {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+  .content .left {
+    display: none;
+  }
+  .content .right {
+    width: 100%;
+  }
+}
+.error-list {
+  color: red;
+  margin: 10px 0;
+  list-style: none;
+  font-size: 0.9em;
+}
+.field-error {
+  color: red;
+  font-size: 0.85em;
+}
