@@ -1,10 +1,9 @@
-from django.shortcuts import render
-
 # Create your views here.
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Event, Category
+from django.core.paginator import Paginator
 
 @login_required
 def event_list(request):
@@ -75,3 +74,17 @@ def event_delete(request, pk):
         event.delete()
         return redirect('event_list')
     return render(request, 'events/delete_confirm.html', {'event': event})
+    
+
+
+def public_event_list(request):
+    events = Event.objects.all()
+    paginator = Paginator(events, 1)  # show 6 events per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'events/public_event_list.html', {'page_obj': page_obj})
+
+def public_event_detail(request, pk):
+    event = get_object_or_404(Event, pk=pk)
+    return render(request, 'events/public_event_detail.html', {'event': event})

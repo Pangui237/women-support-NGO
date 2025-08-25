@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33" height="40" viewBox="0 0 33 40">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #707070;
+      }
+
+      .cls-2 {
+        opacity: 0.9;
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #fd8531;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_48" data-name="Rectangle 48" class="cls-1" width="33" height="40" transform="translate(60 580)"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_15" data-name="Mask Group 15" class="cls-2" transform="translate(-60 -580)">
+    <path id="mail_24dp_FD8531_FILL0_wght400_GRAD0_opsz24" class="cls-3" d="M5.818,7.012A2.95,2.95,0,0,1,3.475,5.837,4.284,4.284,0,0,1,2.5,3.011V-21a4.284,4.284,0,0,1,.975-2.826A2.95,2.95,0,0,1,5.818-25H32.36A2.95,2.95,0,0,1,34.7-23.825,4.284,4.284,0,0,1,35.678-21V3.011A4.284,4.284,0,0,1,34.7,5.837,2.95,2.95,0,0,1,32.36,7.012ZM19.089-6.993,5.818-17V3.011H32.36V-17Zm0-4L32.36-21H5.818ZM5.818-17v0Z" transform="translate(57.5 609.002)"/>
+  </g>
+</svg>

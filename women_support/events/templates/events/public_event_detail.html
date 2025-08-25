@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <title>{{ event.title }} - Event Details</title>
+    <link rel="stylesheet" href="{% static 'events/css/events.css' %}">
+
+<div class="cover" >
+    <div class="content_tilte">
+        <h1 class="title"><span class="tcw">Events </span> <span class="tco">Details</span></h1>
+        <hr>
+        <p class="sub_t"><span class="tcw">Home</span> - <span class="tco">event details</span></p>
+    </div>
+</div>
+
+<div class="img_content">
+    <div class="ED_image">
+        {% if event.image %}
+            <img src="{{ event.image.url }}"  alt="{{ event.title }}">
+        {% else %}
+            <img src="{% static 'images/default_event.jpg' %}" alt="No image">
+        {% endif %}
+        <div class="category"><p>{{ event.date|date:"d M Y" }}</p></div>
+    </div>
+</div>
+
+<div class="main">
+    <div class="ED_content">
+        <div class="left_side">
+            <div class="E_name"><h2>{{ event.title }}</h2></div>
+            <div class="E_desc">
+                <p>{{ event.description|linebreaks }}</p>
+            </div>
+
+            <div class="E_name"><h2>Event Mission</h2></div>
+            <div class="E_desc">
+                <p>{{ event.mission|default:"No mission specified."|linebreaks }}</p>
+                <ul>
+                    <li>Goal 1</li>
+                    <li>Goal 2</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right_side">
+            <div class="card">
+                <div class="banner">
+                    <div class="B_circle"></div>
+                    <div class="B_content">
+                        <div class="icon"><img src="{% static 'icons/location.svg' %}" alt=""></div>
+                        <div class="location">{{ event.location|default:"Not specified" }}</div>
+                    </div>
+                </div>
+
+                <div class="card_content">
+                    <div class="card_icon">
+                        <img src="{% static 'icons/Time.svg' %}" alt="">
+                        <div>
+                            <p class="icon_name">Event Time:</p>
+                            <p class="icon_desc">{{ event.time|default:"TBD" }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card_content">
+                    <div class="card_icon">
+                        <img src="{% static 'icons/Events2.svg' %}" alt="">
+                        <div>
+                            <p class="icon_name">Date:</p>
+                            <p class="icon_desc">{{ event.date|date:"d F Y" }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card_content">
+                    <div class="card_icon">
+                        <img src="{% static 'icons/dollar.svg' %}" alt="">
+                        <div>
+                            <p class="icon_name">Registration fee:</p>
+                            <p class="icon_desc">{{ event.fee|default:"Free" }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card_content">
+                    <div class="card_icon">
+                        <img src="{% static 'icons/Folder.svg' %}" alt="">
+                        <div>
+                            <p class="icon_name">Category:</p>
+                            <p class="icon_desc">{{ event.category|default:"General" }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ED_content">
+        <div class="left_side">
+            <div class="E_name"><h2>Event Requirements</h2></div>
+            <div class="E_desc">
+                <p>{{ event.requirements|default:"No specific requirements."|linebreaks }}</p>
+            </div>
+
+            <div class="ED_button">
+                <div class="edc"></div>
+                <a href="#"><span>Register</span></a>
+            </div>
+        </div>
+
+        <div class="right_side">
+            <div class="card_donate">
+                <div class="card_image">
+                    <img src="{% static 'images/happy_kids_posing.jpg' %}" alt="">
+                    <div class="card_contents">
+                        <h1>Donate</h1>
+                        <p>Support our mission to make a difference!</p>
+                        <div class="buttons">
+                            <a href="#"><span>Contribute</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

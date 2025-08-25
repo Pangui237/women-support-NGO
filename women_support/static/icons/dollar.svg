@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #707070;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        fill: #463f55;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_112" data-name="Rectangle 112" class="cls-1" width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_27" data-name="Mask Group 27" class="cls-2" transform="translate(0)">
+    <g id="attach_money_30dp_1F1F1F">
+      <path id="Path_41" data-name="Path 41" class="cls-3" d="M0,0H100V100H0Z"/>
+      <path id="Path_42" data-name="Path 42" class="cls-4" d="M22.833,32.917c-9.458-2.458-12.5-5-12.5-8.958,0-4.542,4.208-7.708,11.25-7.708C29,16.25,31.75,19.792,32,25h9.208c-.292-7.167-4.667-13.75-13.375-15.875V0h-12.5V9C7.25,10.75.75,16,.75,24.042c0,9.625,7.958,14.417,19.583,17.208,10.417,2.5,12.5,6.167,12.5,10.042,0,2.875-2.042,7.458-11.25,7.458C13,58.75,9.625,54.917,9.167,50H0c.5,9.125,7.333,14.25,15.333,15.958V75h12.5V66.042c8.125-1.542,14.583-6.25,14.583-14.792C42.417,39.417,32.292,35.375,22.833,32.917Z" transform="translate(26.333 12.5)"/>
+    </g>
+  </g>
+</svg>

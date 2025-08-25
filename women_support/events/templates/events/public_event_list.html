@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static 'events/css/events.css' %}">
+
+<div class="cover">
+  <div class="content_title">
+    <h2 class="title"><span class="tcw">Eve</span><span class="tco">nts</span></h2>
+    <hr>
+    <p class="sub_t"><span class="tcw">Home</span> - <span class="tco">Events</span></p>
+  </div>
+</div>
+
+<div class="events">
+  {% for event in page_obj %}
+  <div class="E_list">
+    <div class="E_img">
+      {% if event.image %}
+        <img src="{{ event.image.url }}" alt="">
+      {% else %}
+        <img src="{% static 'images/default_event.jpg' %}" alt="No image">
+      {% endif %}
+    </div>
+    <div class="E_content">
+      <div class="E_name"><h2>{{ event.title }}</h2></div>
+      <div class="E_desc">{{ event.description|truncatewords:25 }}</div>
+      <hr>
+      <div class="icon"><img src="{% static 'icons/location.svg' %}" alt=""><span>{{ event.location }}</span></div>
+      <div class="icon"><img src="{% static 'icons/event.svg' %}" alt=""><span class="bold">{{ event.date|date:"d M Y" }}</span></div>
+      <div class="button">
+        <div class="circle"></div>
+        <div class="more"><a href="{% url 'public_event_detail' event.id %}">More details</a></div>
+      </div>
+    </div>
+    
+  </div>
+  
+  {% empty %}
+  <p>No events available at the moment.</p>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" class="btn">Previous</a>
+  {% else %}
+    <span class="btn disabled">Previous</span>
+  {% endif %}
+
+  {% for num in page_obj.paginator.page_range %}
+    {% if num == page_obj.number %}
+      <span class="btn active">{{ num }}</span>
+    {% elif num >= page_obj.number|add:"-2" and num <= page_obj.number|add:"2" %}
+      <a href="?page={{ num }}" class="btn">{{ num }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class="btn">Next</a>
+  {% else %}
+    <span class="btn disabled">Next</span>
+  {% endif %}
+</div>
+
+
+{% endblock %}
