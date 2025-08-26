@@ -1,0 +1,910 @@
+/*
+    A mobile-first approach for responsive design.
+    The styles are designed for small screens by default,
+    and then adjusted for larger screens using media queries.
+*/
+
+/* General Body and Font Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base sections and titles */
+section {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-title span {
+    color: #FD8531;
+}
+
+.section-desc, .mission-desc {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: rgb(77, 77, 77);
+}
+
+.btn {
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('../images/default_event.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    min-height: 600px;
+    color: #fff;
+    position: relative;
+    padding: 2rem;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.hero-heading {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hero-description p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: #FD8531;
+    border-radius: 20px;
+    color: #fff;
+    margin-top: 1rem;
+}
+
+.hero-btn:hover {
+    background-color: #e67828;
+}
+
+/* Info Section (Welcome and Callout Cards) */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+}
+
+.welcome-card h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.callout-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.callout-card img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.card-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card-btn {
+    border: 2px solid #FD8531;
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    color: #FD8531;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.card-btn:hover {
+    background-color: #FD8531;
+    color: #fff;
+}
+
+/* Mission Section */
+.mission-section {
+    background-color: ghostwhite;
+    padding: 2rem 1rem;
+}
+
+.values-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.value-icon img {
+    width: 100%;
+    height: auto;
+}
+
+/* Events Section */
+.events-section {
+    padding: 2rem 1rem;
+}
+
+.event-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 2px dashed #e0e0e0;
+    border-left: none;
+    border-right: none;
+    padding: 1.5rem 0;
+}
+
+.event-image-container {
+    width: 100%;
+}
+
+.event-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.event-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.event-title {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.event-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.event-meta li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.event-meta i {
+    color: #FD8531;
+}
+
+.event-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #FD8531;
+    color: #fff;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.event-btn:hover {
+    background-color: #e67828;
+}
+
+/* Fund Section */
+.fund-section {
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.fund-images {
+    display: none; /* Hide images on mobile for a cleaner look */
+}
+
+.fund-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.animated-btn {
+    width: 200px;
+    height: 50px;
+    background-color: #FD8531;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 5px;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0 auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.animated-btn .circle {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+
+.animated-btn .more-text {
+    color: #fff;
+    font-weight: bold;
+    padding-left: 10px;
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.animated-btn:hover {
+    background-color: #fff;
+    border: 2px solid #FD8531;
+}
+
+.animated-btn:hover .more-text {
+    transform: translateX(-10px);
+    color: #0a0a0a;
+}
+
+.animated-btn:hover .circle {
+    transform: translateX(150px);
+    background-color: #FD8531;
+}
+
+
+/* =========================
+   Responsive Breakpoints
+   ========================= */
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-heading {
+        font-size: 3.5rem;
+    }
+    
+    .info-section {
+        flex-direction: row;
+        gap: 2rem;
+        padding: 2rem 4rem;
+    }
+
+    .welcome-card {
+        flex: 1.5;
+    }
+
+    .callout-card {
+        flex: 1;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .event-card {
+        flex-direction: row;
+        gap: 2rem;
+    }
+    
+    .event-image-container {
+        width: 50%;
+    }
+    
+    .event-content {
+        width: 50%;
+    }
+    
+    .event-title {
+        text-align: left;
+    }
+    
+    .event-meta {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .fund-section {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: 4rem;
+        padding: 4rem 2rem;
+    }
+    
+    .fund-images {
+        display: block;
+        flex: 1;
+        position: relative;
+    }
+    
+    .fund-images img:first-child {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+    }
+    
+    .fund-images img:last-child {
+        position: absolute;
+        bottom: -20px;
+        right: -50px;
+        width: 80%;
+        height: auto;
+        border-radius: 16px;
+    }
+    
+    .fund-content {
+        flex: 1;
+    }
+}
+
+/* Desktop and larger */
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .hero-section {
+        min-height: 700px;
+    }
+    
+    .hero-heading {
+        font-size: 4rem;
+    }
+    
+    .info-section {
+        padding: 4rem 6rem;
+    }
+    
+    .welcome-card p {
+        width: auto;
+    }
+
+    .callout-card img {
+        height: 400px;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .event-card {
+        gap: 4rem;
+    }
+    
+    .event-image-container img {
+        max-height: 500px;
+    }
+}
+
+/* Widescreen */
+@media (min-width: 1440px) {
+    section {
+        padding: 4rem 8rem;
+    }
+}
+/*
+    A mobile-first approach for responsive design.
+    The styles are designed for small screens by default,
+    and then adjusted for larger screens using media queries.
+*/
+
+/* General Body and Font Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base sections and titles */
+section {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-title span {
+    color: #FD8531;
+}
+
+.section-desc, .mission-desc {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: rgb(77, 77, 77);
+}
+
+.btn {
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('../images/default_event.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    min-height: 600px;
+    color: #fff;
+    position: relative;
+    padding: 2rem;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.hero-heading {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hero-description p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: #FD8531;
+    border-radius: 20px;
+    color: #fff;
+    margin-top: 1rem;
+}
+
+.hero-btn:hover {
+    background-color: #e67828;
+}
+
+/* Info Section (Welcome and Callout Cards) */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+}
+
+.welcome-card h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.callout-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.callout-card img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.card-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card-btn {
+    border: 2px solid #FD8531;
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    color: #FD8531;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.card-btn:hover {
+    background-color: #FD8531;
+    color: #fff;
+}
+
+/* Mission Section */
+.mission-section {
+    background-color: ghostwhite;
+    padding: 2rem 1rem;
+}
+
+.values-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.value-icon img {
+    width: 100%;
+    height: auto;
+}
+
+/* Events Section */
+.events-section {
+    padding: 2rem 1rem;
+}
+
+.event-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 2px dashed #e0e0e0;
+    border-left: none;
+    border-right: none;
+    padding: 1.5rem 0;
+}
+
+.event-image-container {
+    width: 100%;
+}
+
+.event-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.event-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.event-title {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.event-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.event-meta li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.event-meta i {
+    color: #FD8531;
+}
+
+.event-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #FD8531;
+    color: #fff;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.event-btn:hover {
+    background-color: #e67828;
+}
+
+/* Fund Section */
+.fund-section {
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.fund-images {
+    display: none; /* Hide images on mobile for a cleaner look */
+}
+
+.fund-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.animated-btn {
+    width: 200px;
+    height: 50px;
+    background-color: #FD8531;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 5px;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0 auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.animated-btn .circle {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+
+.animated-btn .more-text {
+    color: #fff;
+    font-weight: bold;
+    padding-left: 10px;
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.animated-btn:hover {
+    background-color: #fff;
+    border: 2px solid #FD8531;
+}
+
+.animated-btn:hover .more-text {
+    transform: translateX(-10px);
+    color: #0a0a0a;
+}
+
+.animated-btn:hover .circle {
+    transform: translateX(150px);
+    background-color: #FD8531;
+}
+
+
+/* =========================
+   Responsive Breakpoints
+   ========================= */
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-heading {
+        font-size: 3.5rem;
+    }
+    
+    .info-section {
+        flex-direction: row;
+        gap: 2rem;
+        padding: 2rem 4rem;
+    }
+
+    .welcome-card {
+        flex: 1.5;
+    }
+
+    .callout-card {
+        flex: 1;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .event-card {
+        flex-direction: row;
+        gap: 2rem;
+    }
+    
+    .event-image-container {
+        width: 50%;
+    }
+    
+    .event-content {
+        width: 50%;
+    }
+    
+    .event-title {
+        text-align: left;
+    }
+    
+    .event-meta {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .fund-section {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: 4rem;
+        padding: 4rem 2rem;
+    }
+    
+    .fund-images {
+        display: block;
+        flex: 1;
+        position: relative;
+    }
+    
+    .fund-images img:first-child {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+    }
+    
+    .fund-images img:last-child {
+        position: absolute;
+        bottom: -20px;
+        right: -50px;
+        width: 80%;
+        height: auto;
+        border-radius: 16px;
+    }
+    
+    .fund-content {
+        flex: 1;
+    }
+}
+
+/* Desktop and larger */
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .hero-section {
+        min-height: 700px;
+    }
+    
+    .hero-heading {
+        font-size: 4rem;
+    }
+    
+    .info-section {
+        padding: 4rem 6rem;
+    }
+    
+    .welcome-card p {
+        width: auto;
+    }
+
+    .callout-card img {
+        height: 400px;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .event-card {
+        gap: 4rem;
+    }
+    
+    .event-image-container img {
+        max-height: 500px;
+    }
+}
+
+/* Widescreen */
+@media (min-width: 1440px) {
+    section {
+        padding: 4rem 8rem;
+    }
+}

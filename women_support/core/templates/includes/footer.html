@@ -1,9 +1,65 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <footer>
-  <h1>footer</h1>
-  <p>©2025 EHDF. All rights reserved.</p>
-  <div class="social">
-    <a href="#">Facebook</a>
-    <a href="#">Instagram</a>
-    <a href="#">TikTok</a>
+  <div class="footer-container">
+    <div class="newsletter-section">
+      <div class="newsletter-title">
+        <h2 class="title">Subscribe to our newsletter</h2>
+        <p class="subtitle">get the latest news and updates</p>
+      </div>
+      <div class="subscribe-form">
+        <input type="email" placeholder="Email Address">
+        <button class="subscribe-btn">
+          <span>subscribe</span>
+          <i class="fa fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="footer-content">
+      <div class="footer-column footer-info">
+        <img src="{% static 'images/logo/pwr2.png' %}" alt="Company Logo" class="logo">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quis,
+          excepturi maiores ab dolorum tenetur libero consequatur repellendus eligendi
+        </p>
+        <div class="contact-info">
+          <i class="fa-solid fa-phone-volume"></i>
+          <div>
+            <p>+237690909090</p>
+            <p>+237690909090</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-column footer-links">
+        <h3 class="column-title">Explore link</h3>
+        <ul>
+          <li><a href="">About us</a></li>
+          <li><a href="">Our program</a></li>
+          <li><a href="">Events</a></li>
+          <li><a href="">Donations</a></li>
+          <li><a href="">Contact us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column footer-social">
+        <h3 class="column-title">Follow social</h3>
+        <ul>
+          <li><a href="#"><i class="fa-brands fa-facebook"></i>Facebook</a></li>
+          <li><a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
+          <li><a href="#"><i class="fa-brands fa-tiktok"></i>Tiktok</a></li>
+          <li><a href="#"><i class="fa-brands fa-twitter"></i>Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <hr>
+      <p class="copyright">©2025 EHDF. All rights reserved.</p>
+    </div>
   </div>
 </footer>

@@ -119,6 +119,8 @@ button{
     background-color: inherit;
     border: none;
     font-weight: 550;
+    width: 100%;
+    cursor: pointer;
 }
 .login{
     width: 100%;
@@ -136,7 +138,7 @@ button{
 
 }
 .error-list {
-  color: red;
+  color: #363055;
   margin: 10px 0;
   list-style: none;
   font-size: 0.9em;

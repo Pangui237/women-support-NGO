@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_39" data-name="Rectangle 39" width="80" height="80" transform="translate(1337 5915)" fill="rgba(255,253,250,0.69)" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_10" data-name="Mask Group 10" transform="translate(-1337 -5915)" clip-path="url(#clip-path)">
+    <path id="icons8-twitter" d="M20.952,7.619A13.362,13.362,0,0,0,7.619,20.952V74.286A13.362,13.362,0,0,0,20.952,87.619H74.286A13.362,13.362,0,0,0,87.619,74.286V20.952A13.362,13.362,0,0,0,74.286,7.619Zm0,3.81H74.286a9.494,9.494,0,0,1,9.524,9.524V74.286a9.494,9.494,0,0,1-9.524,9.524H20.952a9.494,9.494,0,0,1-9.524-9.524V20.952A9.494,9.494,0,0,1,20.952,11.429Zm3.973,13.333L42.493,49.721,24.762,70.476h4.762l15.119-17.7L57.1,70.476H72.217l-19.286-27.4,15.64-18.311H63.81L50.781,40.019,40.045,24.762Zm7.292,3.81h5.837l26.871,38.1H59.089Z" transform="translate(1329.381 5907.381)" fill="rgba(255,253,250,0.69)"/>
+  </g>
+</svg>
