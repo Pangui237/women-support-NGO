@@ -1,43 +1,80 @@
 {% load static %}
-
 <link rel="stylesheet" href="{% static 'css/header.css' %}">
 
-<nav>
- <span class="logo">
-     <img src="{%static 'images/logo/pwr2.png'%}" alt="" >
- </span>
-  <ul>
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'about' %}">About</a></li>
-    <li><a href="">Blog</a></li>
-    <li><a href="">Supports</a></li>
-    <li><a href="">Contact</a></li>
-    <li><a href="{% url 'public_event_list' %}">Events</a></li>
+<header class="site-header">
+  <nav class="navbar">
+    <!-- Hamburger icon (mobile) -->
+    <span class="open-slide">
+      <a href="#" onclick="openSideMenu()">
+        <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+      </a>
+    </span>
 
-    {% comment %} <li><a href="{% url 'events:list' %}">Events</a></li>
-    <li><a href="{% url 'blog:list' %}">Blog</a></li>
-    <li><a href="{% url 'support' %}">Support Us</a></li>
-    <li><a href="{% url 'contact' %}">Contact</a></li> {% endcomment %}
-    {% comment %} {% if user.is_authenticated %}
-      <li><a href="{% url 'logout' %}">Logout</a></li>
-    {% else %}
-      <li><a href="{% url 'login' %}">Login</a></li>
-    {% endif %} {% endcomment %}
+    <!-- Logo -->
+    <a class="logo" href="{% url 'home' %}">
+      <img src="{% static 'images/logo/pwr2.png' %}" alt="Logo">
+    </a>
+
+    <!-- Desktop navigation -->
+    <ul class="navbar-nav">
+      <li><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+      <li><a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a></li>
+      <li><a href="#" class="{% if request.path == '/blog/' %}active{% endif %}">Blog</a></li>
+      <li><a href="#" class="{% if request.path == '/supports/' %}active{% endif %}">Supports</a></li>
+      <li><a href="#" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a></li>
+      <li><a href="{% url 'public_event_list' %}" class="{% if request.path == '/events/' %}active{% endif %}">Events</a></li>
+
       {% if user.is_authenticated %}
-      <li>Welcome, {{ user.username }}</li>
-      <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-      <li>
-        <form action="{% url 'logout' %}" method="post">
-          {%csrf_token%}
-          <button type="submit">Loguot </button>
-        </form>
-        {% comment %} <a href="{% url 'logout' %}">Logout</a></li> {% endcomment %}
-    {% else %}
-      </ul>
-      <ul>
+        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li>
+          <form action="{% url 'logout' %}" method="post" class="inline-logout">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+          </form>
+        </li>
+      {% else %}
         <li><a href="{% url 'login' %}">Login</a></li>
-      <li><a href="{% url 'register' %}">Register</a></li>
-      </ul>
-    {% endif %}
+        <li><a href="{% url 'register' %}">Register</a></li>
+      {% endif %}
+    </ul>
+  </nav>
 
-</nav>
+  <!-- Sidebar menu -->
+  <div id="overlay" class="overlay" onclick="closeSideMenu()"></div>
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSideMenu()">&times;</a>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="#">Blog</a>
+    <a href="#">Supports</a>
+    <a href="#">Contact</a>
+    <a href="{% url 'public_event_list' %}">Events</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'dashboard' %}">Dashboard</a>
+      <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="side-logout">Logout</button>
+      </form>
+    {% else %}
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+  </div>
+</header>
+
+<script>
+function openSideMenu() {
+  document.getElementById('side-menu').style.width = '250px';
+  document.getElementById('overlay').style.display = 'block';
+}
+function closeSideMenu() {
+  document.getElementById('side-menu').style.width = '0';
+  document.getElementById('overlay').style.display = 'none';
+}
+</script>
+
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+<!-- i donot like the way you add Active link highlighting. i just need the text to be underlined and the color to change when hover and/or active.
+Add smooth animation to the active link transition
+Add dropdown user menu for authenticated users (Dashboard/Logout) -->

@@ -1,0 +1,78 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+
+<nav>
+ <span class="logo">
+     <img src="{%static 'images/logo/pwr2.png'%}" alt="" >
+ </span>
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="">Blog</a></li>
+    <li><a href="">Supports</a></li>
+    <li><a href="">Contact</a></li>
+    <li><a href="{% url 'public_event_list' %}">Events</a></li>
+
+    {% comment %} <li><a href="{% url 'events:list' %}">Events</a></li>
+    <li><a href="{% url 'blog:list' %}">Blog</a></li>
+    <li><a href="{% url 'support' %}">Support Us</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li> {% endcomment %}
+    {% comment %} {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+      <li><a href="{% url 'login' %}">Login</a></li>
+    {% endif %} {% endcomment %}
+      {% if user.is_authenticated %}
+      <li>Welcome, {{ user.username }}</li>
+      <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+      <li>
+        <form action="{% url 'logout' %}" method="post">
+          {%csrf_token%}
+          <button type="submit">Loguot </button>
+        </form>
+        {% comment %} <a href="{% url 'logout' %}">Logout</a></li> {% endcomment %}
+    {% else %}
+      </ul>
+      <ul>
+        <li><a href="{% url 'login' %}">Login</a></li>
+      <li><a href="{% url 'register' %}">Register</a></li>
+      </ul>
+    {% endif %}
+
+</nav>
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+header{
+    /* position: fixed; */
+    width: 100%;
+    background-color: #363055;
+    height: 100px;
+    padding-top: 2px;
+}
+
+ nav, ul{
+    height: 90%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 40px;
+    /* border: 2px solid #000; */
+}
+nav .logo{
+    width: 200px;
+}
+img{
+    width: 100%;
+    border-radius: 2px;
+}
+ul li a{
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+}
