@@ -1,91 +1,83 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}  About Us{% endblock %}
+{% block title %} About Us{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{%static 'css/about.css'%}">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
 
 <section>
-   <div class="cover" >
+  <div class="cover">
     <div class="content_tilte">
-        <h1 class="title"><span class="tcw">About </span> <span class="tco">us</span></h1>
-        <hr>
-        <p class="sub_t"><span class="tcw">Home</span> - <span class="tco">About</span></p>
+      <h1 class="title"><span class="tcw">About </span> <span class="tco">us</span></h1>
+      <hr>
+      <p class="sub_t"><span class="tcw">Home</span> - <span class="tco">About</span></p>
     </div>
-</div>
+  </div>
 </section>
-<section class="who">
-    <div class="image"><img src="{%static 'images/volunteer.jpg'%}" alt=""></div>
-    <div class="who_we_are">
-        <h1 class="title">Who we are </h1>
-        <hr class="underline_title">
-        <h2>Empower Her Diadem Foundation (EHDF) </h2>
-        <p>is a dynamic nonprofit organization committed to advancing gender equality across Africa. Born in Cameroon, we champion women's empowerment through innovative solutions.
-        </p>
-        <!-- <hr> -->
-        <p>
-            We dismantle barriers through digital literacy programs, leadership training, and community networks that empower Cameroonian women with life-changing skills. Each initiative fosters holistic growth—strengthening minds through education, bodies through healthcare access, and futures through economic independence. From rural villages to urban centers, we're creating ecosystems where women don't just survive but lead, innovate, and transform their communities
 
-        </p>
-        <p>
-            Together, we're building a brighter African future.
-        </p>
-        <div class="btn"><a href="#">Take Action</a></div>
-    </div>
-</section>
-<section class="Mission">
-    <h1 class="title"> Our <span>Mission</span></h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum. 
-        Corporis praesentium doloribus quo, voluptate, harum neque laboriosam 
-        voluptas iusto quidem impedit rerum non atque hic iste sed, cumque expedita!
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium autem sequi 
-        ab temporibus praesentium consequatur explicabo doloribus, earum reiciendis vero sed
+<section class="who">
+  <div class="image"><img src="{%static 'images/volunteer.jpg'%}" alt=""></div>
+  <div class="who_we_are">
+    <h1 class="title">Who we are </h1>
+    <hr class="underline_title">
+    <h2>Empower Her Diadem Foundation (EHDF) </h2>
+    <p>is a dynamic nonprofit organization committed to advancing gender equality across Africa. Born in Cameroon, we champion women's empowerment through innovative solutions.
     </p>
-    <h1 class="title2">Core <span >Value</span></h1>
-    <div class="cards">
-        <div class="value_card" >
-            <div class="image_value">
-                <img src="{%static 'images/card/girl-power.png'%}" alt="" >
-            </div>
-            <h2>Empowerments</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Vitae veniam perspiciatis accusamus alias pariatur similique 
-            sapiente numquam aliquid omnis placeat ea, consequatur praesentium 
-            explicabo ipsum esse suscipit nemo dignissimos vel.</p>
-        </div>
-        <div class="value_card" >
-            <div class="image_value">
-                <img src="{%static 'images/card/legal_human_respect_icon.png'%}" alt="" >
-            </div>
-            <h2>Education</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Vitae veniam perspiciatis accusamus alias pariatur similique 
-            sapiente numquam aliquid omnis placeat ea, consequatur praesentium 
-            explicabo ipsum esse suscipit nemo dignissimos vel.</p>
-        </div>
-        <div class="value_card" >
-            <div class="image_value">
-                <img src="{%static 'images/card/open-book.png'%}" alt="" >
-            </div>
-            <h2>Equality</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Vitae veniam perspiciatis accusamus alias pariatur similique 
-            sapiente numquam aliquid omnis placeat ea, consequatur praesentium 
-            explicabo ipsum esse suscipit nemo dignissimos vel.</p>
-        </div>
-        <div class="value_card" >
-            <div class="image_value">
-                <img src="{%static 'images/card/community.png'%}" alt="" >
-            </div>
-            <h2>Engagement</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Vitae veniam perspiciatis accusamus alias pariatur similique 
-            sapiente numquam aliquid omnis placeat ea, consequatur praesentium 
-            explicabo ipsum esse suscipit nemo dignissimos vel.</p>
-        </div>
+    <p>
+      We dismantle barriers through digital literacy programs, leadership training, and community networks that empower Cameroonian women with life-changing skills. Each initiative fosters holistic growth—strengthening minds through education, bodies through healthcare access, and futures through economic independence. From rural villages to urban centers, we're creating ecosystems where women don't just survive but lead, innovate, and transform their communities
+    </p>
+    <p>
+      Together, we're building a brighter African future.
+    </p>
+    <div class="btn"><a href="#">Take Action</a></div>
+  </div>
+</section>
+
+<section class="Mission">
+  <h1 class="title"> Our <span>Mission</span></h1>
+  <p>At EmpowerHER Diadem Foundation, we are dedicated to equipping African women and girls with
+    the education, skills, and support they need to achieve economic independence, leadership, and holistic well-being.
+    Through technology training, community networks, and advocacy for gender equality,
+    we empower women to break barriers, drive innovation, and transform their communities for a brighter,
+    more equitable future.
+  </p>
+  <h1 class="title2">Core <span>Value</span></h1>
+  <div class="cards">
+    <div class="value_card">
+      <div class="image_value">
+        <img src="{%static 'images/card/girl-power.png'%}" alt="">
+      </div>
+      <h2>Empowerments</h2>
+      <p>We equip women with confidence, skills, and opportunities to take control of their futures.
+        From leadership training to economic programs, we inspire self-reliance and bold decision-making in every aspect of life.</p>
     </div>
+    <div class="value_card">
+      <div class="image_value">
+        <img src="{%static 'images/card/legal_human_respect_icon.png'%}" alt="">
+      </div>
+      <h2>Education</h2>
+      <p>We break barriers to learning by providing accessible education, vocational training, and digital literacy programs.
+        Knowledge is power—and we ensure women and girls wield it to transform their communities.</p>
+    </div>
+    <div class="value_card">
+      <div class="image_value">
+        <img src="{%static 'images/card/open-book.png'%}" alt="">
+      </div>
+      <h2>Equality</h2>
+      <p>We champion gender justice by challenging discriminatory norms and advocating for equal rights.
+        Through policy engagement and awareness campaigns, we pave the way for a fairer, more inclusive Africa.</p>
+    </div>
+    <div class="value_card">
+      <div class="image_value">
+        <img src="{%static 'images/card/community.png'%}" alt="">
+      </div>
+      <h2>Engagement</h2>
+      <p>We build strong, inclusive networks where women uplift each other through mentorship, resource-sharing, and collective action.
+        By fostering solidarity, we create spaces for collaboration, growth, and lasting social change across Africa.</p>
+    </div>
+  </div>
 </section>
 
 <section class="what-we-do-section">

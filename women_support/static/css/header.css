@@ -29,10 +29,15 @@ body {
   transition: height 0.3s ease;
 }
 
+/* Desktop nav */
 .navbar-nav {
   list-style: none;
   display: flex;
   gap: 20px;
+}
+
+.navbar-nav li {
+  position: relative;
 }
 
 .navbar-nav li a {
@@ -40,35 +45,69 @@ body {
   text-decoration: none;
   font-size: 17px;
   padding: 8px 12px;
-  transition: 0.3s;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
 .navbar-nav li a:hover,
 .navbar-nav li a.active {
-  background-color: #ddd;
-  color: #000;
-  border-radius: 30px;
+  color: #ffcc00;
 }
 
-/* Inline logout button */
-.inline-logout button {
+.navbar-nav li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background: #ffcc00;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav li a:hover::after,
+.navbar-nav li a.active::after {
+  width: 100%;
+}
+
+/* Dropdown */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #fff;
+  color: #333;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.dropdown-menu li a,
+.logout-btn {
+  display: block;
+  padding: 8px 15px;
+  color: #333;
+  text-decoration: none;
   background: none;
   border: none;
-  color: #f2f2f2;
-  font-size: 17px;
-  cursor: pointer;
-  padding: 8px 12px;
+  width: 100%;
+  text-align: left;
 }
-.inline-logout button:hover {
-  background-color: #ddd;
-  color: #000;
-  border-radius: 30px;
+
+.dropdown-menu li a:hover,
+.logout-btn:hover {
+  background: #f0f0f0;
 }
 
 /* Hamburger */
-.open-slide {
-  display: none;
-}
+.open-slide { display: none; }
+
 .menu-icon {
   font-size: 2rem;
   color: #fff;
@@ -125,8 +164,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1400;
+  transition: opacity 0.3s ease;
 }
 
 /* Responsive */

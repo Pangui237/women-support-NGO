@@ -469,3 +469,215 @@ title::after {
   .image_grid img:nth-child(4n+4){
     grid-column: span 2;
 } */
+
+.our_team {
+  display: flex;
+  flex-direction: column;
+  padding: 4%;
+  background-color: gainsboro;
+}
+.our_team .row1 {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.row1 .btn {
+  display: flex;
+  justify-content: space-between;
+  width: 12%;
+}
+.row1 .left {
+  width: 60px;
+  display: inline-block;
+  border: 2px solid#363055;
+  transform: rotate(180deg);
+  background-color: white;
+  padding: 4px;
+}
+.row1 .left:hover {
+  background-color: beige;
+  cursor: pointer;
+}
+.row1 .right {
+  width: 60px;
+  display: inline-block;
+  border: 2px solid#363055;
+  background-color: white;
+  padding: 4px;
+}
+.row1 .right:hover {
+  background-color: beige;
+  cursor: pointer;
+}
+.left img {
+  width: 90%;
+  object-fit: cover;
+}
+.right img {
+  width: 90%;
+  object-fit: cover;
+}
+
+.our_team .row2 {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  width: 100%;
+  margin: 3% 0;
+  justify-content: space-between;
+}
+.row2 .card_content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto; /* Updated to auto for flexibility */
+}
+.row2 .card_content .image {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+}
+.row2 .card_content .image img {
+  border-radius: 14px 14px 0 0;
+  max-height: 350px;
+  width: 100%; /* Added to ensure image fills container */
+  object-fit: cover;
+}
+
+.row2 .card_content .content {
+  text-align: center;
+  grid-column: 1;
+  grid-row: 2;
+  background-color: #fff;
+  padding: 20px 0;
+  border-radius: 14px 14px 3px 3px;
+  transform: translateY(-30px);
+}
+.card_content .content .name {
+  color: #363055;
+  font-family: "Poppins";
+  font-weight: 500;
+}
+.card_content .content p {
+  color: #FD8531;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-family: "Poppins";
+}
+.row3 {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.row3 .btn {
+  border: 2px solid #FD8531;
+  text-align: center;
+  padding: 0.5% 2.5%;
+  border-radius: 40px;
+}
+.row3 .btn:hover {
+  border: 2px solid #FD8531;
+  background-color: #fff;
+}
+.row3 .btn a {
+  text-decoration: none;
+  color: #363055;
+  font-size: 2rem;
+}
+.gallery {
+  margin: 4%;
+  text-align: center;
+}
+.image_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.image_grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Base styles for complex grid patterns, these will be overwritten on mobile */
+.image_grid img:nth-child(odd) {
+  grid-column: span 2;
+}
+.image_grid img:nth-child(3n + 2) {
+  grid-row: span 2;
+}
+.image_grid img:nth-child(4n + 1) {
+  grid-column: span 2;
+}
+.image_grid img:nth-child(4n + 3) {
+  grid-column: span 1;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet and smaller screens */
+@media screen and (max-width: 768px) {
+  .our_team .row1 {
+    flex-direction: column; /* Stack the heading and buttons vertically */
+    align-items: center;
+    gap: 15px; /* Add some space between them */
+  }
+
+  .row1 .btn {
+    width: 30%;
+    display: none; 
+    /* Make buttons wider for easier tapping */
+  }
+
+  .our_team .row2 {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+    gap: 20px;
+  }
+}
+
+/* Mobile screens */
+@media screen and (max-width: 480px) {
+  .our_team .row1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .row1 .btn {
+    width: 50%;
+    display: none; /* Make buttons even wider on mobile */
+  }
+
+  .our_team .row2 {
+    grid-template-columns: 1fr; /* Single column layout for team cards */
+  }
+  
+  .row2 .card_content .image img {
+    max-height: 250px; /* Reduce image height on small screens */
+  }
+  
+  .row2 .card_content .content {
+    transform: translateY(-20px); /* Reduce the amount of overlap */
+    padding: 15px 0;
+  }
+  
+  .row3 {
+    justify-content: center; /* Center the "view team list" button */
+  }
+  
+  .row3 .btn a {
+    font-size: 1.5rem; /* Reduce font size for the button text */
+  }
+
+  .image_grid {
+    grid-template-columns: 1fr; /* Simple single column layout for gallery */
+    gap: 10px;
+  }
+
+  /* Reset the complex grid properties on mobile */
+  .image_grid img:nth-child(odd),
+  .image_grid img:nth-child(3n + 2),
+  .image_grid img:nth-child(4n + 1),
+  .image_grid img:nth-child(4n + 3) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}

@@ -3,15 +3,12 @@
 /* ############################################################################ */
 
 .cover {
-    background-image: url('../images/happy_kids_posing.jpg');
+  background-image: url('../images/happy_kids_posing.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 70vb;
-  /* min-height: 00px; */
+  height: 80vh;
   width: 100%;
   color: #fff;
-  /* background-blend-mode: darken; */
-  /* background-color: #363055; */
   opacity: 0.9;
   padding-top: 10%;
   padding-left: 20px;
@@ -35,7 +32,6 @@
 
 .tco {
   color: #FD8531;
-  /* padding-left: 5%; */
 }
 
 .sub_t {
@@ -48,17 +44,18 @@
 .title {
   font-family: 'Retro Team', sans-serif;
   font-weight: bolder;
-  /* font-size: 60px; */
-  font-size: larger;
+  font-size: 7rem;
   text-transform: uppercase;
   color: #363055;
 }
-.title .underline_title{
+
+.title .underline_title {
   display: block;
   width: 50%;
 }
-h2{
-  font-family: 'Poppins';
+
+h2 {
+  font-family: 'Poppins', sans-serif;
 }
 
 section hr {
@@ -66,115 +63,129 @@ section hr {
   width: 98%;
   margin: 1rem 0;
 }
-p{
-    width: 99%;
-    color: rgb(77, 77, 77);
-    line-height: 18pt;
-    /* margin-bottom: 3%; */
-    /* margin: 3% 0; */
-    /* max-height: 300px; */
-    
+
+p {
+  width: 99%;
+  color: rgb(77, 77, 77);
+  line-height: 1.5;
 }
 
-.who{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 400px;
-    column-gap: 3%;
-    /* grid-template-rows: 500px; */
-    margin: 3%;
+/* Base styles for the 'who' section */
+.who {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  column-gap: 3%;
+  margin: 3%;
+  /* align-items: center; */
 }
-.who img{
+.who .image{
+  /* border: 2px solid #FD8531; */
+  height: 80%;
+  max-width:100%;
+}
+
+.who .image img {
   object-fit: cover;
   border-radius: 4px;
   height: 100%;
-  /* padding-bottom: 100px; */
+  width: 100%;
 }
 
-.who .btn{
-  padding: 1% 2%; 
-  width: 20%;
-  /* border:1px solid #363055; */
+
+.who .btn {
+  padding: 1% 2%;
+  width: 30%;
   text-align: center;
   background-color: #FD8531;
-
-}
-.who .btn a{
-    /* background-color: #FD8531; */
-    padding: 12px; 
-    border-radius: 4px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bolder;
-    font-family: 'Poppins';
-}
-.who .who_we_are{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-.Mission{
-    /* background-color: ghostwhite; */
-  /* border:2px solid #363055; */
-    margin: 30px 0;
-    /* width: 90%; */
-    padding: 50px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+.who .btn a {
+  padding: 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bolder;
+  font-family: 'Poppins', sans-serif;
 }
-.title{
-    font-family: 'Retro team';
-    font-size: 3rem;
-    font-weight: 700;
 
+.who .who_we_are {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+  /* border: 2px solid #363055; */
 }
-title::after {
-  content: '';
-  border: 2px solid black;
-  padding: 3px;
-  position: relative;
+.who_we_are .title {
+  font-family: 'Retro team', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  /* text-align: center; */
+}
 
+/* Base styles for the 'Mission' and 'cards' section */
+.Mission {
+  margin: 30px 0;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
-.Mission .title2{
-    font-size: 2rem;
+
+.Mission .title {
+  font-family: 'Retro team', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
 }
-.Mission p{
+
+.Mission .title2 {
+  font-size: 2rem;
+}
+
+.Mission p {
   width: 90%;
 }
-.cards{
-    display: flex;
-    /* justify-content: end; */
-    margin: 0 30px;
-    width: 97%;
-    background-color: ghostwhite;
-    padding: 2% 0;
 
-}
-.cards .value_card{
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  /* border:1px solid #363055; */
-
-}
-.value_card .image_value{
-    max-width: 50%;
-    
+.cards {
+  display: flex;
+  flex-wrap: wrap; /* Corrected: Allows cards to wrap to the next line */
+  justify-content: center; /* Corrected: Centers cards horizontally */
+  margin: 0 30px;
+  width: 97%;
+  background-color: ghostwhite;
+  padding: 2% 0;
 }
 
-.value_card .image_value img{
-    width: 100%;
-}
-.value_card h2{
-    font-family: 'Poppins';
-    font-weight: bolder;
+.cards .value_card {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
+.value_card .image_value {
+  max-width: 50%;
+}
 
+.value_card .image_value img {
+  width: 100%;
+}
+
+.value_card h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  margin-top: 10px;
+}
+
+.value_card p {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+}
 
 
 
@@ -343,168 +354,158 @@ title::after {
   padding: 1.5% 4%;
 }
 
-
-.our_team{
+.our_team {
   display: flex;
   flex-direction: column;
   padding: 4%;
-  /* border: 2px solid #363055; */
   background-color: gainsboro;
 }
-.our_team .row1{
+.our_team .row1 {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
-.row1 .btn{
+.row1 .btn {
   display: flex;
   justify-content: space-between;
   width: 12%;
-  /* border: 1px solid #FD8531; */
 }
-.row1 .left{
+.row1 .left {
   width: 60px;
   display: inline-block;
   border: 2px solid#363055;
   transform: rotate(180deg);
   background-color: white;
   padding: 4px;
-} 
-.row1 .left:hover{
+}
+.row1 .left:hover {
   background-color: beige;
   cursor: pointer;
 }
-.row1 .right{
+.row1 .right {
   width: 60px;
   display: inline-block;
   border: 2px solid#363055;
   background-color: white;
   padding: 4px;
-} 
-
-.row1 .right:hover{
+}
+.row1 .right:hover {
   background-color: beige;
   cursor: pointer;
 }
-.left img{
+.left img {
   width: 90%;
   object-fit: cover;
 }
-.right img{
+.right img {
   width: 90%;
   object-fit: cover;
 }
 
-.our_team .row2{
-  display: grid;
-  grid-template-columns: 30% 30% 30%;
+.our_team .row2 {
+ display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Use '1fr' for equal column widths */
   width: 100%;
   margin: 3% 0;
+  gap: 20px; /* Add a consistent gap between cards */
   justify-content: space-between;
- 
 }
-.row2 .card_content{
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  /* background-color: #fff; */
-  /* border: 2px solid#363055; */
+.row2 .card_img {
+  display: flex; /* Make the card itself a flex container */
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+.row2 .card_content {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Make the content container fill the full height */
+  background-color: #fff;
+  border-radius: 14px; /* Apply border-radius to the entire card content */
+  overflow: hidden; /* Ensures image and content stay within the border-radius */
 }
 .row2 .card_content .image {
-  grid-column: 1;
-  grid-row: 1;
   width: 100%;
-  /* z-index: 1; */
-  /* border: 2px solid#363055; */
-
+  /* Use a fixed aspect ratio for a consistent image size */
+  aspect-ratio: 1/1; /* This is the key to uniform image sizes */
+  overflow: hidden;
 }
-.row2 .card_content .image img{
-  border-radius: 14px 14px 0  0;
-  max-height: 350px;
+.row2 .card_content .image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  border-radius: 14px 14px 0 0;
 }
 
-.row2 .card_content .content{
+.row2 .card_content .content {
   text-align: center;
-  grid-column: 1;
-  grid-row: 2;
   background-color: #fff;
   padding: 20px 0;
-  border-radius: 14px 14px  3px 3px;
-  transform: translateY(-30px);
+  border-radius: 0 0 14px 14px; /* Adjust border-radius to match the card */
+  margin-top: -30px; /*negative margin to pull the content up */
+  position: relative;
+  z-index: 1;
 }
-.card_content .content .name{
+.card_content .content .name {
   color: #363055;
   font-family: "Poppins";
   font-weight: 500;
 }
-.card_content .content p{
+.card_content .content p {
   color: #FD8531;
   text-transform: uppercase;
   font-weight: bolder;
   font-family: "Poppins";
-
 }
-.row3{
+.row3 {
   width: 100%;
   display: flex;
   justify-content: end;
 }
-.row3 .btn{
+.row3 .btn {
   border: 2px solid #FD8531;
   text-align: center;
   padding: 0.5% 2.5%;
   border-radius: 40px;
 }
-.row3 .btn:hover{
+.row3 .btn:hover {
   border: 2px solid #FD8531;
   background-color: #fff;
-
-/*   
-  text-align: center;
-  padding: 0.5% 2.5%;
-  border-radius: 40px; */
 }
-
-.row3 .btn  a{
-  /* border: 1px solid  #FD8531; */
+.row3 .btn a {
   text-decoration: none;
   color: #363055;
   font-size: 2rem;
-  /* padding: 10%; */
 }
-.gallery{
+.gallery {
   margin: 4%;
   text-align: center;
 }
-.image_grid{
+.image_grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-template-rows: repeat(auto, 300px); */
   gap: 10px;
-
 }
-.image_grid img{
+.image_grid img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.image_grid img:nth-child(odd){
-    grid-column: span 2;
-    /* border:2px  solid #363055; */
+/* Base styles for complex grid patterns, these will be overwritten on mobile */
+.image_grid img:nth-child(odd) {
+  grid-column: span 2;
 }
-.image_grid img:nth-child(3n+2){
-    grid-row: span 2;
+.image_grid img:nth-child(3n + 2) {
+  grid-row: span 2;
 }
-.image_grid img:nth-child(4n+1){
-    grid-column: span 2;
-    /* border:2px  solid #363055; */
+.image_grid img:nth-child(4n + 1) {
+  grid-column: span 2;
 }
- .image_grid  img:nth-child(4n+3){
-    grid-column: span 1;
-    /* border:2px  solid #363055; */
+.image_grid img:nth-child(4n + 3) {
+  grid-column: span 1;
 }
+
   /* .image_grid img:last-child{
     grid-column: span 3;
     max-height: 400px;
@@ -523,3 +524,197 @@ title::after {
   .image_grid img:nth-child(4n+4){
     grid-column: span 2;
 } */
+ 
+
+
+/* --- Media Queries for Responsiveness --- */
+/* --- Media Queries for Responsiveness --- */
+
+@media screen and (max-width: 1024px) {
+  /* .who {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  
+  .who .who_we_are {
+    gap: 15px;
+  }
+  .who img {
+    height: auto;
+  } */
+    .cards .value_card {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1057px) {
+
+
+  .who {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  
+  .who .who_we_are {
+    gap: 15px;
+    margin-top: -25%;
+  }
+  .who img {
+    height: auto;
+  }
+    .cards .value_card {
+    width: 50%;
+  }
+  .our_team .title {
+    font-size: 3rem;
+  }
+   .gallery .title {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cover {
+    height: 50vh;
+  }
+  .sub_t {
+    font-size: 1.5rem;
+  }
+   .content_tilte .title {
+    font-size: 3rem; 
+  }
+  
+  .who {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .who .btn {
+    width: 30%;
+  }
+  
+  .who .who_we_are {
+    gap: 15px;
+  }
+  .who img {
+    height: auto;
+  }
+   /* Specific styles for "Who we are" heading on mobile */
+  .who .who_we_are .title {
+    font-size: 2.5rem; /* Make it significantly larger */
+    text-align: center; /* Align center */
+    margin-bottom: 10px; /* Add some space below the title */
+  }
+  /* Adjust size of the h2 below the main title on mobile */
+  .who .who_we_are h2 {
+    font-size: 1.2rem; /* Keep it smaller than the h1 but readable */
+    text-align: center; /* Center align for mobile too */
+    margin-top: 0; /* Adjust spacing */
+  }
+  .Mission .title {
+    font-size: 2.5rem;
+  }
+  .Mission .title2 {
+    font-size: 1.5rem;
+  }
+  .cards .value_card {
+    width: 50%;
+  }
+
+  .our_team .title {
+    font-size: 2.5rem;
+  }
+  
+  .gallery .title {
+    font-size: 2.5rem;
+  }
+  .image_grid img:nth-child(event){
+  grid-column: span 2;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .cover {
+    height: 40vh;
+  }
+  .sub_t {
+    font-size: 1rem;
+  }
+    .content_tilte .title {
+    font-size: 3rem; 
+  }
+  .who {
+    margin: 3%;
+  }
+  /* Specific styles for "Who we are" heading on mobile */
+  .who .who_we_are .title {
+    font-size: 2.5rem; /* Make it significantly larger */
+    text-align: center; /* Align center */
+    margin-bottom: 10px; /* Add some space below the title */
+  }
+  /* Adjust size of the h2 below the main title on mobile */
+  .who .who_we_are h2 {
+    font-size: 1.2rem; /* Keep it smaller than the h1 but readable */
+    text-align: center; /* Center align for mobile too */
+    margin-top: 0; /* Adjust spacing */
+  }
+
+  .Mission .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .cards {
+    margin: 0;
+    width: 100%;
+  }
+  .cards .value_card {
+    width: 100%;
+  }
+  .who .btn {
+    width: 50%;
+  }
+
+  .our_team .row1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .row1 .btn {
+    display: none;
+    width: 50%; /* Make buttons even wider on mobile */
+  }
+
+  .our_team .row2 {
+    grid-template-columns: 1fr; /* Single column layout for team cards */
+  }
+  
+  .row2 .card_content .image img {
+    max-height: 250px; /* Reduce image height on small screens */
+  }
+  
+  .row2 .card_content .content {
+    transform: translateY(-20px); /* Reduce the amount of overlap */
+    padding: 15px 0;
+  }
+  
+  .row3 {
+    justify-content: center; /* Center the "view team list" button */
+  }
+  
+  .row3 .btn a {
+    font-size: 1.5rem; /* Reduce font size for the button text */
+  }
+
+  .image_grid {
+    grid-template-columns: 1fr; /* Simple single column layout for gallery */
+    gap: 10px;
+  }
+
+  /* Reset the complex grid properties on mobile */
+  .image_grid img:nth-child(odd),
+  .image_grid img:nth-child(3n + 2),
+  .image_grid img:nth-child(4n + 1),
+  .image_grid img:nth-child(4n + 3) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}

@@ -3,9 +3,9 @@
 
 <header class="site-header">
   <nav class="navbar">
-    <!-- Hamburger icon (mobile) -->
+    <!-- Hamburger icon -->
     <span class="open-slide">
-      <a href="#" onclick="openSideMenu()">
+      <a href="#" onclick="openSideMenu(event)">
         <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
       </a>
     </span>
@@ -17,30 +17,37 @@
 
     <!-- Desktop navigation -->
     <ul class="navbar-nav">
-      <li><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
-      <li><a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a></li>
-      <li><a href="#" class="{% if request.path == '/blog/' %}active{% endif %}">Blog</a></li>
-      <li><a href="#" class="{% if request.path == '/supports/' %}active{% endif %}">Supports</a></li>
-      <li><a href="#" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a></li>
-      <li><a href="{% url 'public_event_list' %}" class="{% if request.path == '/events/' %}active{% endif %}">Events</a></li>
+      <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+      <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a></li>
+      <li><a href="#" class="">Blog</a></li>
+      <li><a href="#" class="">Supports</a></li>
+      <li><a href="#" class="">Contact</a></li>
+      <li><a href="{% url 'public_event_list' %}" class="{% if request.resolver_match.url_name == 'public_event_list' %}active{% endif %}">Events</a></li>
 
       {% if user.is_authenticated %}
-        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-        <li>
-          <form action="{% url 'logout' %}" method="post" class="inline-logout">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-          </form>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Welcome, {{ user.username }}</a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li>
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout-btn">Logout</button>
+              </form>
+            </li>
+          </ul>
         </li>
       {% else %}
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'register' %}">Register</a></li>
+        <li><a href="{% url 'login' %}" class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">Login</a></li>
+        <li><a href="{% url 'register' %}" class="{% if request.resolver_match.url_name == 'register' %}active{% endif %}">Register</a></li>
       {% endif %}
     </ul>
   </nav>
 
-  <!-- Sidebar menu -->
+  <!-- Overlay -->
   <div id="overlay" class="overlay" onclick="closeSideMenu()"></div>
+
+  <!-- Sidebar menu -->
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSideMenu()">&times;</a>
     <a href="{% url 'home' %}">Home</a>
@@ -63,7 +70,8 @@
 </header>
 
 <script>
-function openSideMenu() {
+function openSideMenu(e) {
+  e.preventDefault();
   document.getElementById('side-menu').style.width = '250px';
   document.getElementById('overlay').style.display = 'block';
 }
@@ -75,6 +83,12 @@ function closeSideMenu() {
 
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
-<!-- i donot like the way you add Active link highlighting. i just need the text to be underlined and the color to change when hover and/or active.
-Add smooth animation to the active link transition
-Add dropdown user menu for authenticated users (Dashboard/Logout) -->
+<!-- Would you like me to now:
+
+Make the dropdown open on click (instead of hover) for mobile-friendly interaction?
+
+Add a sliding animation for the sidebar (from left) with easing?
+
+Make the active link underline animate from center-out (instead of left-to-right)?
+
+Which should I implement next? -->
